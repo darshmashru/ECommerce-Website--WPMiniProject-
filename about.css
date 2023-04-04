@@ -352,7 +352,7 @@ body {
   width: auto;
   bottom: auto;
   z-index: 2;
-  font-size: 14px;
+  font-size: 28px;
   font-family: var(--body-font);
   font-weight: 500;
 }
@@ -385,12 +385,12 @@ body {
 .button-wrapper .swiper-button {
   border: 1px solid var(--body-color);
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
+  width: 90px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to right, var(--body-color) 40%, transparent 0%);
+  background: linear-gradient(to right, var(--body-color) 40%, transparent 10%);
   background-size: 200% 100%;
   background-position: right bottom;
   transition: all 0.3s ease-out;
@@ -491,7 +491,6 @@ body {
     padding-right: 5.5%;
   }
   
-  
   .brand {
     position: relative;
     float: left;
@@ -500,6 +499,7 @@ body {
     font-size: 1.4em;
     padding-left: 5.5%;
   }
+  
   .brand a,
   .brand a:visited {
     color: #ffffff;
@@ -512,17 +512,19 @@ body {
   
   nav {
     float: right;
-  
   }
+  
   nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
   }
+  
   nav ul li {
     float: left;
     position: relative;
   }
+  
   nav ul li a,
   nav ul li a:visited {
     display: block;
@@ -532,19 +534,23 @@ body {
     color: #ffffff;
     text-decoration: none;
   }
+  
   nav ul li a:hover,
   nav ul li a:visited:hover {
     background: rgb(142, 130, 115);
     color: #ffffff;
   }
+  
   nav ul li a:not(:only-child):after,
   nav ul li a:visited:not(:only-child):after {
     padding-left: 4px;
     content: " ▾";
   }
+  
   nav ul li ul li {
     min-width: 190px;
   }
+  
   nav ul li ul li a {
     padding: 15px;
     line-height: 20px;
@@ -555,8 +561,18 @@ body {
     display: none;
     z-index: 1;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    background-color: #262626;
   }
   
+  nav ul li:hover .nav-dropdown {
+    display: block;
+  }
+  
+  
+  nav ul li ul li a:hover {
+    background-color: rgb(142, 130, 115);
+    color: #ffffff;
+  }
   /* Mobile navigation */
   .nav-mobile {
     display: none;
