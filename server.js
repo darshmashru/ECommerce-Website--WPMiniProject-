@@ -112,7 +112,9 @@ app.get('/candles.html', (req, res) => {
   res.send(renderedHtml);
 });
 
-app.use(express.static('.'));
+// app.use(express.static('.'));
+app.use(express.static(path.join(__dirname, '/')));
+
 
 app.listen(3000, () => {
   console.log('Server started on port 3000');
