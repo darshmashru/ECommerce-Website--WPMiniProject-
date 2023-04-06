@@ -235,7 +235,7 @@ body {
   padding-top: 125px;
   margin-left: -20px;
 
-  background: #ededed;
+  background: #ffffff;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
@@ -275,8 +275,13 @@ body {
   margin-top: 5px;
 }
 
-.supernav a, .supernav a:hover, .supernav a:visited, .supernav a:active {
-  color: white;
+.supernav a,  .supernav a:visited, .supernav a:active {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.supernav a:hover {
+  color: orange;
   text-decoration: none;
 }
 
@@ -345,7 +350,7 @@ body {
   position: absolute;
   top: 230px;
   padding-left: 10rem;
-  z-index: 100;
+  z-index: 1;
   pointer-events: none;
   width: 700px;
 }
@@ -413,7 +418,7 @@ body {
   color: #fff;
   border: 3px solid #ffffff;
   background-image: -webkit-linear-gradient(30deg, transparent 50%, #ffffff 50%);
-  background-image: linear-gradient(30deg, transparent 50%, #ffb300 50%);
+  background-image: linear-gradient(30deg, transparent 50%, orange 50%);
   background-size: 500px;
   background-repeat: no-repeat;
   background-position: 0%;
@@ -992,6 +997,10 @@ figure.card--2:hover {
   padding: 20px; /* add padding to the boxes */
   box-sizing: border-box;
   text-align: center;
+}
+
+.icon-box:hover {
+  color: orange;
 }
 
 .icon-box i {
