@@ -68,6 +68,7 @@ import path from 'path';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+
 // Config for PlanetScale
 const config = {
   host: process.env.PLANETSCALE_DB_HOST,
@@ -105,6 +106,7 @@ Promise.all([fs.readFile(path.join(__dirname, 'index.html'), 'utf8'), conn.execu
   });
 
 const app = express();
+app.use(express.static(path.join(__dirname, './')));
 
 app.get('/candles.html', (req, res) => {
   if (results === null) {
@@ -148,7 +150,6 @@ app.get('/', (req, res) => {
   res.send(renderedHtml);
 });
 // app.use(express.static('.'));
-app.use(express.static(path.join(__dirname, './')));
 
 
 // app.listen(3000, () => {
