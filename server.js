@@ -137,8 +137,8 @@ app.get('/', (req, res) => {
   const data = {
     c_id: results.rows[0].id,
     n_name1: results.rows[0].name,
-    n_name2: results.rows[0].name,
-    n_name3: results.rows[0].name,
+    n_name2: results.rows[1].name,
+    n_name3: results.rows[2].name,
     n_description1: results.rows[0].description,
     n_description2: results.rows[1].description,
     n_description3: results.rows[2].description,
@@ -150,7 +150,7 @@ app.get('/', (req, res) => {
   res.send(renderedHtml);
 });
 
-app.use(express.static(path.join(__dirname, './')));
+app.use(express.static(path.join(__dirname, './.vercel/output/static/')));
 // app.use(express.static('.'));
 
 

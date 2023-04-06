@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  header {
+    background-color: rgb(142, 130, 115);
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 0.5rem;
+  }
+  
+  th {
+    background-color: rgb(142, 130, 115);
+    color: #fff;
+  }
+  
+  tfoot td {
+    font-weight: bold;
+  }
+  
+  tfoot td:first-child {
+    text-align: right;
+  }
+  
+  tfoot td:last-child {
+    text-align: center;
+  }
+  
+  tfoot td:last-child button {
+    display: block;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    background-color: rgb(142, 130, 115);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  tfoot td:last-child button:hover {
+    background-color: #3d3d3d;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #ddd;
+  }
+  
+  td:last-child {
+    text-align: center;
+  }
+  
+  td:last-child button {
+    background-color: transparent;
+    color: rgb(142, 130, 115);
+    border: none;
+    cursor: pointer;
+  }
+  
+  td:last-child button:hover {
+    text-decoration: underline;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
