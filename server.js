@@ -16,7 +16,7 @@ let html = ''; // Global variable to store the HTML contents
 let results = null; // Global variable to store the database results
 
 // Read the contents of the HTML file and execute database query when the server starts up
-Promise.all([fs.readFile('./candles.html', 'utf8'), conn.execute('SELECT * from merkaba.candles where id="1"')])
+Promise.all([fs.readFile('/candles.html', 'utf8'), conn.execute('SELECT * from merkaba.candles where id="1"')])
   .then(([file, res]) => {
     html = file;
     results = res;
