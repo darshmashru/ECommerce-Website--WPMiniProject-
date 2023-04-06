@@ -1,279 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        @font-face {
-          font-family: Gilroy-Black;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-Black.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-BlackItalic;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-BlackItalic.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-Bold;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-Bold.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-BoldItalic;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-BoldItalic.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-ExtraBold;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-ExtraBold.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-ExtraBoldItalic;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-ExtraBoldItalic.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-Heavy;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-Heavy.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-HeavyItalic;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-HeavyItalic.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-Light;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-Light.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-LightItalic;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-LightItalic.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-Medium;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-Medium.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-MediumItalic;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-MediumItalic.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-Regular;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-Regular.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-RegularItalic;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-RegularItalic.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-SemiBold;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-SemiBold.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-SemiBoldItalic;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-SemiBoldItalic.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-Thin;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-Thin.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-ThinItalic;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-ThinItalic.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-UltraLight;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-UltraLight.ttf);
-        }
-        @font-face {
-          font-family: Gilroy-UltraLightItalic;
-          src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-UltraLightItalic.ttf);
-        }
-        </style>
-    <link rel="stylesheet" href="about.css">
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js'></script><script  src="./script.js"></script>
-    </head>
-<body>
-    <div class="loading-page">
-		<div class="loading-page-grey" style="background-color: rgb(142, 130, 115);"></div>
-		<div class="loading-page-white"></div>
-		<div class="loading-page-text-wrap">
-			<div class="loading-page-text">Merkaba <span>Jewellery</span></div>
-		</div>
-	</div>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel='stylesheet' href='https://unpkg.com/swiper/swiper-bundle.min.css'><link rel="stylesheet" href="./about.css">
-    
-    </head>
-    <body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @font-face {
+      font-family: Gilroy-Black;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-Black.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-BlackItalic;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-BlackItalic.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-Bold;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-Bold.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-BoldItalic;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-BoldItalic.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-ExtraBold;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-ExtraBold.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-ExtraBoldItalic;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-ExtraBoldItalic.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-Heavy;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-Heavy.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-HeavyItalic;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-HeavyItalic.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-Light;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-Light.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-LightItalic;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-LightItalic.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-Medium;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-Medium.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-MediumItalic;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-MediumItalic.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-Regular;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-Regular.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-RegularItalic;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-RegularItalic.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-SemiBold;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-SemiBold.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-SemiBoldItalic;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-SemiBoldItalic.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-Thin;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-Thin.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-ThinItalic;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-ThinItalic.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-UltraLight;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-UltraLight.ttf);
+    }
+
+    @font-face {
+      font-family: Gilroy-UltraLightItalic;
+      src: url(https://unpkg.com/aks-fonts@1.0.0/Gilroy/Gilroy-UltraLightItalic.ttf);
+    }
+  </style>
+  <link rel="stylesheet" href="about.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js'></script>
+  <script src="./script.js"></script>
+</head>
+
+<body>
+  <div class="loading-page">
+    <div class="loading-page-grey" style="background-color: rgb(142, 130, 115);"></div>
+    <div class="loading-page-white"></div>
+    <div class="loading-page-text-wrap">
+      <div class="loading-page-text">Merkaba <span>Jewellery</span></div>
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://unpkg.com/swiper/swiper-bundle.min.css'>
+  <link rel="stylesheet" href="./about.css">
+
+  </head>
+
+  <body>
     <!-- partial:index.partial.html -->
-    <nav>
-        <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
-        <ul class="nav-list">
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-          <li>
-            <a href="about.html">About</a>
-          </li>
-          <li>
-            <a href="#"> Jewellery</a>
-            <ul class="nav-dropdown">
-              <li>
-                <a href="Jewellery/bracelets.html">Bracelets</a>
-              </li>
-              <li>
-                <a href="Jewellery/necklaces.html">Necklaces</a>
-              </li>
-              <li>
-                <a href="Jewellery/rings.html">Rings</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="candles.html">Candles</a>
-          </li>
-          <li>
-            <a href="contact.html">Contact</a>
-          </li>
+    <section class="supernav">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
+          <a href="index.html">
+            <li>Home</li>
+          </a>
+          <a href="about.html">
+            <li>About</li>
+          </a>
+          <a href="necklaces.html">
+            <li>Shop</li>
+          </a>
+          <a href="candles.html">
+            <li>Candles</li>
+          </a>
+          <a href="cart.html">
+            <li>Cart</li>
+          </a>
+
         </ul>
-      </nav>
+      </div>
+    </section>
+
+
     <div class="container">
-        
-        <div class="mySwiper">
-            <div class="main-wrapper swiper-wrapper">
-                <div class="main swiper-slide" id="beach">
-                    <div class="left-side">
-                        <div class="main-wrapper">
-                            <h3 class="main-header">Products We Sell</h3>
-                            <h1 class="main-title">Rings</h1>
-                            <h2 class="main-subtitle">€ 39.90</h2>
-                        </div>
-                        <div class="main-content">
-                            <div class="main-content__title">In 20 years, there could be more plastic in our oceans than fish.</div>
-                            <div class="main-content__subtitle">Plastic pollution injures more than 100.000 marine animals every year.It takes around 450 years for one plastic bottle to decompose.</div>
-                            <div class="more-menu">
-                                Shop Now
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <line x1="-5" y1="12" x2="19" y2="12" />
-                                    <line x1="15" y1="16" x2="19" y2="12" />
-                                    <line x1="15" y1="8" x2="19" y2="12" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="center">
-                        <div class="right-side__img">
-                            <img class="bottle-img" src="assets/Reva-304'22(2)-NL009.jpg" height="800px" style="float: right; margin-left: 800px; position: relative;">
-                        </div>
-                    </div>
+
+      <div class="mySwiper">
+        <div class="main-wrapper swiper-wrapper">
+          <div class="main swiper-slide" id="beach">
+            <div class="left-side">
+              <div class="main-wrapper">
+                <h3 class="main-header">Products We Sell</h3>
+                <h1 class="main-title">Rings</h1>
+                <h2 class="main-subtitle">€ 39.90</h2>
+              </div>
+              <div class="main-content">
+                <div class="main-content__title">In 20 years, there could be more plastic in our oceans than fish.</div>
+                <div class="main-content__subtitle">Plastic pollution injures more than 100.000 marine animals every
+                  year.It takes around 450 years for one plastic bottle to decompose.</div>
+                <div class="more-menu">
+                  Shop Now
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor"
+                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <line x1="-5" y1="12" x2="19" y2="12" />
+                    <line x1="15" y1="16" x2="19" y2="12" />
+                    <line x1="15" y1="8" x2="19" y2="12" />
+                  </svg>
                 </div>
-                <div class="main swiper-slide" id="savanna">
-                    <div class="left-side">
-                        <div class="main-wrapper">
-                            <h3 class="main-header">Products We Sell</h3>
-                            <h1 class="main-title">Necklaces</h1>
-                            <h2 class="main-subtitle">€ 39.90</h2>
-                        </div>
-                        <div class="main-content">
-                            <div class="main-content__title">The Earth’s area affected by desertification is approx 11 times India’s size.
-                            </div>
-                            <div class="main-content__subtitle">The Savannas act as a carbon sink, absorbing CO2 from the atmosphere and helping to maintain the balance of global temperatures.</div>
-                            <div class="more-menu">
-                                Shop Now
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <line x1="-5" y1="12" x2="19" y2="12" />
-                                    <line x1="15" y1="16" x2="19" y2="12" />
-                                    <line x1="15" y1="8" x2="19" y2="12" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="center">
-                        <div class="right-side__img"> 
-                            <img class="bottle-img" src="assets/Reva-304'22(2)-LR001.jpg" height="800px" style="float: right; margin-left: 800px; position: relative;">
-                        </div>
-                    </div>
-                </div>
-                <div class="main swiper-slide" id="glacier">
-                    <div class="left-side">
-                        <div class="main-wrapper">
-                            <h3 class="main-header">Products We Sell</h3>
-                            <h1 class="main-title">Bracelets</h1>
-                            <h2 class="main-subtitle">€ 39.90</h2>
-                        </div>
-                        <div class="main-content">
-                            <div class="main-content__title">Glaciers contain 75% of the World's freshwater.
-                            </div>
-                            <div class="main-content__subtitle">The effects of melting ice glaciers are biodiversity loss, the rising of the sea level and the deficiency of freshwater, among others.</div>
-                            <div class="more-menu">
-                                Shop Now
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <line x1="-5" y1="12" x2="19" y2="12" />
-                                    <line x1="15" y1="16" x2="19" y2="12" />
-                                    <line x1="15" y1="8" x2="19" y2="12" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="center">
-                        <div class="right-side__img">
-                            <img class="bottle-img"src="assets/Reva-304'22(2)-LR009.jpg" height="800px" style="float: right; margin-left: 800px; position: relative;">
-                        </div>
-                    </div>
-                </div>
-                <div class="main swiper-slide" id="coral">
-                    <div class="left-side">
-                        <div class="main-wrapper">
-                            <h3 class="main-header">Products We Sell</h3>
-                            <h1 class="main-title">Candles</h1>
-                            <h2 class="main-subtitle">€ 39.90</h2>
-                        </div>
-                        <div class="main-content">
-                            <div class="main-content__title">We will have lost 60% of our coral reefs by 2030.
-                            </div>
-                            <div class="main-content__subtitle">Coral reefs are essential to humans, as they protect the shorelines and are a source of
-                                nutrients and habitat for thousands of marine species.</div>
-                            <div class="more-menu">
-                                Shop Now
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <line x1="-5" y1="12" x2="19" y2="12" />
-                                    <line x1="15" y1="16" x2="19" y2="12" />
-                                    <line x1="15" y1="8" x2="19" y2="12" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="center">
-                        <div class="right-side__img">
-                            <img class="bottle-img" src="assets/Reva-304'22(2)-LR002.jpg" height="800px" style="float: right; margin-left: 800px; position: relative;">
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+            <div class="center">
+              <div class="right-side__img">
+                <img class="bottle-img" src="assets/Reva-304'22(2)-NL009.jpg" height="800px"
+                  style="float: right; margin-left: 800px; position: relative;">
+              </div>
+            </div>
+          </div>
+          <div class="main swiper-slide" id="savanna">
+            <div class="left-side">
+              <div class="main-wrapper">
+                <h3 class="main-header">Products We Sell</h3>
+                <h1 class="main-title">Necklaces</h1>
+                <h2 class="main-subtitle">€ 39.90</h2>
+              </div>
+              <div class="main-content">
+                <div class="main-content__title">The Earth’s area affected by desertification is approx 11 times India’s
+                  size.
+                </div>
+                <div class="main-content__subtitle">The Savannas act as a carbon sink, absorbing CO2 from the atmosphere
+                  and helping to maintain the balance of global temperatures.</div>
+                <div class="more-menu">
+                  Shop Now
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor"
+                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <line x1="-5" y1="12" x2="19" y2="12" />
+                    <line x1="15" y1="16" x2="19" y2="12" />
+                    <line x1="15" y1="8" x2="19" y2="12" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="center">
+              <div class="right-side__img">
+                <img class="bottle-img" src="assets/Reva-304'22(2)-LR001.jpg" height="800px"
+                  style="float: right; margin-left: 800px; position: relative;">
+              </div>
+            </div>
+          </div>
+          <div class="main swiper-slide" id="glacier">
+            <div class="left-side">
+              <div class="main-wrapper">
+                <h3 class="main-header">Products We Sell</h3>
+                <h1 class="main-title">Bracelets</h1>
+                <h2 class="main-subtitle">€ 39.90</h2>
+              </div>
+              <div class="main-content">
+                <div class="main-content__title">Glaciers contain 75% of the World's freshwater.
+                </div>
+                <div class="main-content__subtitle">The effects of melting ice glaciers are biodiversity loss, the
+                  rising of the sea level and the deficiency of freshwater, among others.</div>
+                <div class="more-menu">
+                  Shop Now
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor"
+                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <line x1="-5" y1="12" x2="19" y2="12" />
+                    <line x1="15" y1="16" x2="19" y2="12" />
+                    <line x1="15" y1="8" x2="19" y2="12" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="center">
+              <div class="right-side__img">
+                <img class="bottle-img" src="assets/Reva-304'22(2)-LR009.jpg" height="800px"
+                  style="float: right; margin-left: 800px; position: relative;">
+              </div>
+            </div>
+          </div>
+          <div class="main swiper-slide" id="coral">
+            <div class="left-side">
+              <div class="main-wrapper">
+                <h3 class="main-header">Products We Sell</h3>
+                <h1 class="main-title">Candles</h1>
+                <h2 class="main-subtitle">€ 39.90</h2>
+              </div>
+              <div class="main-content">
+                <div class="main-content__title">We will have lost 60% of our coral reefs by 2030.
+                </div>
+                <div class="main-content__subtitle">Coral reefs are essential to humans, as they protect the shorelines
+                  and are a source of
+                  nutrients and habitat for thousands of marine species.</div>
+                <div class="more-menu">
+                  Shop Now
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.7" stroke="currentColor"
+                    fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <line x1="-5" y1="12" x2="19" y2="12" />
+                    <line x1="15" y1="16" x2="19" y2="12" />
+                    <line x1="15" y1="8" x2="19" y2="12" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="center">
+              <div class="right-side__img">
+                <img class="bottle-img" src="assets/Reva-304'22(2)-LR002.jpg" height="800px"
+                  style="float: right; margin-left: 800px; position: relative;">
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="button-wrapper">
-            <div class="swiper-button swiper-prev-button">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
-            </div>
-            <div class="swiper-button swiper-next-button">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
-            </div>
+      </div>
+      <div class="button-wrapper">
+        <div class="swiper-button swiper-prev-button">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
         </div>
-        <div class="swiper-pagination"></div>
+        <div class="swiper-button swiper-next-button">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
     <!-- partial -->
-      <script src='https://unpkg.com/swiper/swiper-bundle.min.js'></script><script  src="./about.js"></script>
-</body>
+    <script src='https://unpkg.com/swiper/swiper-bundle.min.js'></script>
+    <script src="./about.js"></script>
+  </body>
+
 </html>
-
-
-
-

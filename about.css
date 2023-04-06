@@ -208,8 +208,9 @@ body {
 .left-side {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   max-width: 320px;
+  margin-left: 100px;
+  margin-top: 80px;
 }
 @media screen and (max-width: 930px) {
   .left-side {
@@ -660,3 +661,199 @@ body {
     margin: 0 auto;
     padding: 10px;
   }
+
+  #menuToggle
+{
+  display: block;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: tomato;
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+#menuToggle span
+{
+  display: block;
+  width: 30px;
+  height: 3px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #000000;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu
+{
+  position: absolute;
+  width: 300px;
+  height: 107vh;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  margin-left: -20px;
+
+  background: #ffffff;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+.supernav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  font-family: Gilroy-Regular;
+  padding: 0 20px;
+  font-size: 22px;
+  z-index: 99;
+  color: #fff;
+  margin-top: 5px;
+}
+
+.supernav a,  .supernav a:visited, .supernav a:active {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.supernav a:hover {
+  color: orange;
+  text-decoration: none;
+}
+
+.menufr {
+  margin-right: 10px;
+}
+
+.search {
+  flex: 0 0 auto;
+  margin-left: 50px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.logo {
+  flex: 1;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 26px;
+  letter-spacing: 5px;
+  font-family: 'Prata';
+}
+
+.icon-nav-bar-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  margin-right: 15px;
+}
+
+.icon-nav-bar-right div {
+  flex: 0 0 auto;
+}
+
+.Login i,
+.Heart i,
+.Cart i {
+  display: inline-block;
+  font-size: 2rem;
+  margin-right: 5px;
+}
