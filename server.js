@@ -106,7 +106,7 @@ Promise.all([fs.readFile(path.join(__dirname, 'index.html'), 'utf8'), conn.execu
   });
 
 const app = express();
-app.use(express.static(path.join(__dirname, './')));
+
 
 app.get('/candles.html', (req, res) => {
   if (results === null) {
@@ -149,6 +149,8 @@ app.get('/', (req, res) => {
   const renderedHtml = ejs.render(html, data);
   res.send(renderedHtml);
 });
+
+app.use(express.static(path.join(__dirname, './')));
 // app.use(express.static('.'));
 
 
