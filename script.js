@@ -1,5 +1,5 @@
-const tls = gsap.timeline({ defaults: {delay: 3, ease: "power1.out" } });
-const tl = gsap.timeline({ defaults: {delay: 2, ease: "power1.out" } });
+const tls = gsap.timeline({ defaults: {delay: 0.5, ease: "power1.out" } });
+const tl = gsap.timeline({ defaults: {delay: 0, ease: "power1.out" } });
 
 tl.fromTo(".loading-page-text span", 0.5, { y: 0 }, {      y: -10,
         ease: 'Power0.easeOut',
@@ -178,6 +178,3 @@ window.onload = function() {
 			
 		})
 }
-
-
-

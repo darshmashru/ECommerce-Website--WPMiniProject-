@@ -11,49 +11,24 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css'>
+
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
+  <section class="supernav">
+    <div class="menufr"><i class="fa-sharp fa-solid fa-bars"></i></div>
+
+    <div class="search"><i class="fa-sharp fa-solid fa-magnifying-glass"></i>    Search</div>
+   <div class="logo">Logo</div>
+   <div class="icon-nav-bar-right">
+    <div class="Login"><i class="fa-sharp fa-solid fa-user"></i></div>
+    <div class="Heart"><i class="fas fa-heart"></i></div>
+    <div class="Cart"><i class="fas fa-shopping-cart"></i></div>
   </div>
-  <section class="navigation">
-    <div class="nav-container">
-      <div class="brand">
-        <a href="#!">MERKABA</a>
-      </div>
-      <nav>
-        <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
-        <ul class="nav-list">
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-          <li>
-            <a href="about.html">About</a>
-          </li>
-          <li>
-            <a href="#!">Jewellery ▾</a>
-            <ul class="nav-dropdown">
-              <li>
-                <a href="#!">Bracelets</a>
-              </li>
-              <li>
-                <a href="#!">Necklaces</a>
-              </li>
-              <li>
-                <a href="#!">Rings</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="candles.html">Candles</a>
-          </li>
-          <li>
-            <a href="#!">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+
   </section>
 
   <main class="main" id="main">
@@ -73,14 +48,14 @@
 
     <section>
       <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
+        <!-- <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="0" class="active"
             aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="1"
             aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleInterval" data-bs-slide-to="2"
             aria-label="Slide 3"></button>
-        </div>
+        </div> -->
 
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="5000">
@@ -122,9 +97,11 @@
         <h1>OUR BESTSELLING</h1>
         <h3>OUR JEWELLERY SECTION</h3>
       </div>
-      <div>
 
+      <div>
+        
       </div>
+      
     </section>
 
     <section class="process">
@@ -140,9 +117,12 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum euismod justo, vitae tristique mauris
           facilisis nec.</p>
 
-        <button>
-          View More!
-        </button>
+        <div class="container">
+          <div class="button-container">
+            <div class="button button-2">Shop Now!</div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -151,22 +131,161 @@
         <h3>NEW KIND RINGS</h3>
         <h1> Classic Jewelry Collection </h1>
         <p>David and Sybil's collaboration continues to inspire this classic design.</p>
+        <div class="container">
+          <div class="button-container">
+            <div class="button button-2">Shop Now!</div>
+          </div>
+        </div>
       </div>
       <div>
         <img src="assets/ringsfeature.jpg">
       </div>
     </section>
 
+    <!-- testimonials -->
+      <div class="gtco-testimonials">
+        <h3>Client Testimonials</h3>
+        <h2>Our Happy Clients</h2>
+        <div class="owl-carousel owl-carousel1 owl-theme">
+          <div>
+            <div class="card text-center"><img class="card-img-top"
+                src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300"
+                alt="">
+              <div class="card-body">
+                <h5>Ronne Galle <br />
+                </h5>
+                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                  impedit quo minus id quod maxime placeat ” </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="card text-center"><img class="card-img-top"
+                src="https://images.unsplash.com/photo-1588361035994-295e21daa761?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=301&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=301"
+                alt="">
+              <div class="card-body">
+                <h5>Missy Limana<br />
+                </h5>
+                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                  impedit quo minus id quod maxime placeat ” </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="card text-center"><img class="card-img-top"
+                src="https://images.unsplash.com/photo-1575377222312-dd1a63a51638?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=302&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=302"
+                alt="">
+              <div class="card-body">
+                <h5>Martha Brown<br />
+                </h5>
+                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                  impedit quo minus id quod maxime placeat ” </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="card text-center"><img class="card-img-top"
+                src="https://images.unsplash.com/photo-1549836938-d278c5d46d20?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=303&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=303"
+                alt="">
+              <div class="card-body">
+                <h5>Hanna Lisem<br />
+                </h5>
+                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                  impedit quo minus id quod maxime placeat ” </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="img-container">
+        <div class="img-box">
+            <div class="top-left-text">SHOP BY CATEGORY -></div>
+            <img class="img" src="assets/Reva-304'22(2)-LR001.jpg">
+            <div class="txt prim-txt">Image 1</div>
+            <div class="txt sec-txt">Hover over me</div>
+        </div>
+        <div class="img-box">
+            <img class="img" src="assets/Reva-304'22(2)-NL009.jpg">
+            <div class="txt prim-txt">Image 2</div>
+            <div class="txt sec-txt">Hover over me</div>
+        </div>
+        <div class="img-box">
+            <img class="img" src="assets/Reva-304'22(2)-PS009.jpg">
+            <div class="txt prim-txt">Image 3</div>
+            <div class="txt sec-txt">Hover over me</div>
+            <div class="top-right-text">EXPLORE MORE -></div>
+        </div>
+    </div>
+
+
+    <div class="icon-container">
+      <div class="icon-box">
+        <i class="fas fa-gift"></i>
+        <div class="icon-label">Gift Package</div>
+        <div class="icon-description">Find the perfect gift for any occasion.</div>
+      </div>
+      <div class="icon-box">
+        <i class="fas fa-gem"></i>
+        <div class="icon-label">Diamond Selection</div>
+        <div class="icon-description">Discover beautiful jewelry pieces to treasure.</div>
+      </div>
+      <div class="icon-box">
+        <i class="fas fa-ring"></i>
+        <div class="icon-label">Design Your Ring</div>
+        <div class="icon-description">Explore our selection of stunning rings.</div>
+      </div>
+      
+    </div>
+
+    <div class="newsletter-container">
+      <h2 class="newsletter-title">Get Our Latest Update</h2>
+      <p class="newsletter-text">Sign up to our newsletter for information on sales, delightful content and new additions to the collection.</p>
+      <form class="newsletter-form">
+        <input type="email" class="newsletter-input" placeholder="Enter your email...">
+        <button type="submit" class="newsletter-submit">SUBSCRIBE</button>
+      </form>
+      <div class="newsletter-policy">
+        <input type="checkbox" id="policy-checkbox" class="newsletter-checkbox">
+        <label for="policy-checkbox" class="newsletter-label">I Agree To The Privacy Policy.</label>
+      </div>
+    </div>
+
+    
+    <footer>
+      <div class="footer-links">
+        <a href="#">ABOUT</a>
+        <a href="#">STORE LOCATION</a>
+        <a href="#">CONTACT</a>
+        <a href="#">DELIVERY</a>
+        <a href="#">FAQS</a>
+        <a href="#">CONTACT</a>
+        <a href="#">DELIVERY</a>
+        <a href="#">FAQS</a>
+      </div>
+    </footer>
+    
+    
+    
+  
     <!-- partial -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js'></script>
-    <script src="./script.js"></script>
+
+    <script src='https://cdn.jsdelivr.net/npm/vue@2'></script>
+
     <script src="https://use.fontawesome.com/1744f3f671.js"></script>
 
     <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.js'></script>
     <script src="./script.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js'></script>
+
+    <script src="./script2.js"></script>
+
+    <script src="https://kit.fontawesome.com/b831735088.js" crossorigin="anonymous"></script>
 
 </body>
 
