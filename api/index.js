@@ -127,7 +127,7 @@ app.get('/candles.html', (req, res) => {
   res.send(renderedHtml);
 });
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   if (results === null) {
     res.status(500).send('Internal server error. Please try again later.');
     return;
