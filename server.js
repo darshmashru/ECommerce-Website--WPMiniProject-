@@ -246,6 +246,22 @@ app.post('/update-cart', async (req, res) => {
   }
 });
 
+app.post('/save-details', (req, res) => {
+  const formData = req.body;
+  const db = client.db('Merkaba');
+  const collection = db.collection('contact');
+
+  collection.insertOne(formData, (err, result) => {
+    if (err) {
+      console.error('Error inserting into MongoDB:', err);
+      res.status(500).send('Error inserting data into the database.');
+    } else {
+        res.status(200).send('Form data submitted successfully!');
+    }
+    client.close();
+  });
+});
+
 
 app.use(express.static(path.join(__dirname, './')));
 
