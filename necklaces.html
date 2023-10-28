@@ -19,6 +19,81 @@
 
     <!--====== App ======-->
     <link rel="stylesheet" href="css/app.css">
+
+    <script>
+        const type = "Necklaces";
+        const elements = document.getElementsByClassName("type");
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].innerHTML = type;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            
+            // Define a data object to map product numbers to MongoDB ObjectIDs
+            const productDataMap = {
+                1: '6539310cca7dae3920863177',
+                2: '6539310cca7dae3920863178',
+                3: '6539310cca7dae3920863179',
+                4: '6539310cca7dae392086317a',
+                5: '6539310cca7dae392086317b',
+                6: '6539310cca7dae392086317c',
+                7: '6539310cca7dae392086317d',
+                8: '6539310cca7dae392086317e',
+                9: '6539310cca7dae392086317f',
+                10: '6539310cca7dae3920863180',
+                11: '6539310cca7dae3920863181',
+                12: '6539310cca7dae3920863182'
+            };
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productNumber = button.getAttribute('data-product-number');
+                    const numericProductNumber = Number(productNumber);
+                    const objectID = productDataMap[productNumber];
+                    addToCart(objectID);
+                });
+            });
+    
+            function addToCart(objectID) {
+                const productData = {
+                    DB: "necklaces",
+                    ID: objectID
+                };
+                // Create or update the JSON file on the server with the product data
+                fetch('/update-cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(productData),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                    alert('Product added to cart successfully');
+                    // You can update the UI or take other actions upon success
+                    } else {
+                    alert('Failed to add product to cart');
+                    // Handle the error and provide feedback to the user
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Handle any unexpected errors here
+                });
+
+            }
+        });
+
+        window.ga = function () {
+            ga.q.push(arguments)
+        };
+        ga.q = [];
+        ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('send', 'pageview')
+    </script>
 </head>
 
 <body class="config">
@@ -557,7 +632,7 @@
                                     </div>
                                 </div>
                                 <div class="shop-p__collection">
-                                    <div class="row is-grid-active">
+                                    <div class="row is-grid-active" id="getcart">
                                         <div class="col-lg-3 col-md-4 col-sm-6">
                                             <div class="product-m">
                                                 <div class="product-m__thumb">
@@ -574,8 +649,8 @@
                                                     </div>
                                                     <div class="product-m__add-cart">
 
-                                                        <a class="btn--e-brand" data-modal="modal"
-                                                            data-modal-id="#add-to-cart">Add to Cart</a>
+                                                        <a class="btn--e-brand add-to-cart" data-modal="modal"
+                                                            data-product-number="1">Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="product-m__content">
@@ -629,8 +704,8 @@
                                                     </div>
                                                     <div class="product-m__add-cart">
 
-                                                        <a class="btn--e-brand" data-modal="modal"
-                                                            data-modal-id="#add-to-cart">Add to Cart</a>
+                                                        <a class="btn--e-brand add-to-cart" data-modal="modal"
+                                                        data-product-number="2">Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="product-m__content">
@@ -684,8 +759,8 @@
                                                     </div>
                                                     <div class="product-m__add-cart">
 
-                                                        <a class="btn--e-brand" data-modal="modal"
-                                                            data-modal-id="#add-to-cart">Add to Cart</a>
+                                                        <a class="btn--e-brand add-to-cart" data-modal="modal"
+                                                        data-product-number="3">Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="product-m__content">
@@ -739,8 +814,8 @@
                                                     </div>
                                                     <div class="product-m__add-cart">
 
-                                                        <a class="btn--e-brand" data-modal="modal"
-                                                            data-modal-id="#add-to-cart">Add to Cart</a>
+                                                        <a class="btn--e-brand add-to-cart" data-modal="modal"
+                                                        data-product-number="4">Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="product-m__content">
@@ -794,8 +869,8 @@
                                                     </div>
                                                     <div class="product-m__add-cart">
 
-                                                        <a class="btn--e-brand" data-modal="modal"
-                                                            data-modal-id="#add-to-cart">Add to Cart</a>
+                                                        <a class="btn--e-brand add-to-cart" data-modal="modal"
+                                                        data-product-number="5">Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="product-m__content">
@@ -849,8 +924,8 @@
                                                     </div>
                                                     <div class="product-m__add-cart">
 
-                                                        <a class="btn--e-brand" data-modal="modal"
-                                                            data-modal-id="#add-to-cart">Add to Cart</a>
+                                                        <a class="btn--e-brand add-to-cart" data-modal="modal"
+                                                        data-product-number="6">Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="product-m__content">
@@ -904,8 +979,8 @@
                                                     </div>
                                                     <div class="product-m__add-cart">
 
-                                                        <a class="btn--e-brand" data-modal="modal"
-                                                            data-modal-id="#add-to-cart">Add to Cart</a>
+                                                        <a class="btn--e-brand add-to-cart" data-modal="modal"
+                                                        data-product-number="7">Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="product-m__content">
@@ -959,8 +1034,8 @@
                                                     </div>
                                                     <div class="product-m__add-cart">
 
-                                                        <a class="btn--e-brand" data-modal="modal"
-                                                            data-modal-id="#add-to-cart">Add to Cart</a>
+                                                        <a class="btn--e-brand add-to-cart" data-modal="modal"
+                                                            data-product-number="8">Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="product-m__content">
@@ -1017,8 +1092,8 @@
                                                     </div>
                                                     <div class="product-m__add-cart">
 
-                                                        <a class="btn--e-brand" data-modal="modal"
-                                                            data-modal-id="#add-to-cart">Add to Cart</a>
+                                                        <a class="btn--e-brand add-to-cart" data-modal="modal"
+                                                            data-product-number="9">Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="product-m__content">
@@ -1075,8 +1150,8 @@
                                                     </div>
                                                     <div class="product-m__add-cart">
 
-                                                        <a class="btn--e-brand" data-modal="modal"
-                                                            data-modal-id="#add-to-cart">Add to Cart</a>
+                                                        <a class="btn--e-brand add-to-cart" data-modal="modal"
+                                                            data-product-number="10">Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="product-m__content">
@@ -1133,8 +1208,8 @@
                                                     </div>
                                                     <div class="product-m__add-cart">
 
-                                                        <a class="btn--e-brand" data-modal="modal"
-                                                            data-modal-id="#add-to-cart">Add to Cart</a>
+                                                        <a class="btn--e-brand add-to-cart" data-modal="modal"
+                                                            data-product-number="11">Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="product-m__content">
@@ -1191,8 +1266,8 @@
                                                     </div>
                                                     <div class="product-m__add-cart">
 
-                                                        <a class="btn--e-brand" data-modal="modal"
-                                                            data-modal-id="#add-to-cart">Add to Cart</a>
+                                                        <a class="btn--e-brand add-to-cart" data-modal="modal"
+                                                            data-product-number="12">Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="product-m__content">
@@ -1810,17 +1885,6 @@
 
 
     <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
-    <script>
-        const type = "Rings";
-        document.getElementByClass("type").innerHTML = type;
-        window.ga = function () {
-            ga.q.push(arguments)
-        };
-        ga.q = [];
-        ga.l = +new Date;
-        ga('create', 'UA-XXXXX-Y', 'auto');
-        ga('send', 'pageview')
-    </script>
     <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
     <!--====== Vendor Js ======-->

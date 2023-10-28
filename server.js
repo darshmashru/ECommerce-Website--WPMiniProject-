@@ -5,6 +5,7 @@ import { MongoClient } from 'mongodb';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -42,6 +43,7 @@ client.connect(err => {
 });
 
 const app = express();
+app.use(express.json());
 
 app.get('/candles.html', async (req, res) => {
   try {
@@ -59,7 +61,6 @@ app.get('/candles.html', async (req, res) => {
 
     // Create a single data object for rendering.
     const data = {};
-    console.log("Data:" + data);
     documents.forEach((document, index) => {
       data[`n_id${index + 1}`] = document._id;
       data[`n_name${index + 1}`] = document.name;
@@ -214,6 +215,37 @@ app.get('/rings.html', async (req, res) => {
     res.status(500).send('Internal server error. Please try again later.');
   }
 });
+
+// Add a new route to handle the "/add-to-cart" request
+app.post('/update-cart', async (req, res) => {
+  try {
+    // Assuming that the request body contains the product details to add to the cart
+    const productData = req.body;
+
+    // Load the existing cart data from the JSON file (if it exists)
+    let cartData = [];
+
+    // Check if the cart JSON file exists and load its content
+    try {
+      const cartFileContents = await fs.readFile('cart.json', 'utf8');
+      cartData = JSON.parse(cartFileContents);
+    } catch (err) {
+      // Handle file read errors, e.g., if the file doesn't exist
+    }
+
+    // Add the new product data to the cart
+    cartData.push(productData);
+
+    // Save the updated cart data to the JSON file
+    await fs.writeFile('cart.json', JSON.stringify(cartData, null, 2), 'utf8');
+
+    res.json({ success: true, message: 'Product added to cart successfully' });
+  } catch (err) {
+    console.error('Error occurred while adding to cart:', err);
+    res.status(500).send('Internal server error. Please try again later.');
+  }
+});
+
 
 app.use(express.static(path.join(__dirname, './')));
 

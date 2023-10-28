@@ -4,6 +4,60 @@
     <meta charset="UTF-8" />
     <title>Luxury Candles</title>
     <link rel="stylesheet" href="candles.css" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+        // Define a data object to map product numbers to MongoDB ObjectIDs
+        const productDataMap = {
+          1: "653929f5cd3084aaa63eae5b",
+          2: "653929f5cd3084aaa63eae5c",
+          3: "653929f5cd3084aaa63eae5d",
+          4: "653929f5cd3084aaa63eae5e",
+          5: "653929f5cd3084aaa63eae5f",
+          6: "653929f5cd3084aaa63eae60",
+        };
+
+        addToCartButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const productNumber = button.getAttribute("data-product-number");
+            console.log(productNumber);
+            const numericProductNumber = Number(productNumber);
+            const objectID = productDataMap[productNumber];
+            addToCart(objectID);
+          });
+        });
+
+        function addToCart(objectID) {
+          const productData = {
+            DB: "candles",
+            ID: objectID,
+          };
+          // Create or update the JSON file on the server with the product data
+          fetch("/update-cart", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(productData),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                alert("Product added to cart successfully");
+                // You can update the UI or take other actions upon success
+              } else {
+                alert("Failed to add product to cart");
+                // Handle the error and provide feedback to the user
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              // Handle any unexpected errors here
+            });
+        }
+      });
+    </script>
   </head>
   <body>
     <section class="navigation">
@@ -53,42 +107,54 @@
           <h2><%= n_name1 %></h2>
           <p><%= n_desc1 %></p>
           <p class="price">$<%= n_price1 %></p>
-          <button class="add-to-cart" data-product-id="1">Add to cart</button>
+          <button class="add-to-cart" data-product-number="1">
+            Add to cart
+          </button>
         </div>
         <div class="product-item">
-          <img src="assets/vanilla.jpg" alt="Product 1" />
+          <img src="assets/vanilla.jpg" alt="Product 2" />
           <h2><%= n_name2 %></h2>
           <p><%= n_desc2 %></p>
           <p class="price">$<%= n_price2 %></p>
-          <button class="add-to-cart" data-product-id="1">Add to cart</button>
+          <button class="add-to-cart" data-product-number="2">
+            Add to cart
+          </button>
         </div>
         <div class="product-item">
-          <img src="assets/sandalwood.jpg" alt="Product 1" />
+          <img src="assets/sandalwood.jpg" alt="Product 3" />
           <h2><%= n_name3 %></h2>
           <p><%= n_desc3 %></p>
           <p class="price">$<%= n_price3 %></p>
-          <button class="add-to-cart" data-product-id="1">Add to cart</button>
+          <button class="add-to-cart" data-product-number="3">
+            Add to cart
+          </button>
         </div>
         <div class="product-item">
-          <img src="assets/jasmine.jpeg" alt="Product 1" />
+          <img src="assets/jasmine.jpeg" alt="Product 4" />
           <h2><%= n_name4 %></h2>
           <p><%= n_desc4 %></p>
           <p class="price">$<%= n_price4 %></p>
-          <button class="add-to-cart" data-product-id="1">Add to cart</button>
+          <button class="add-to-cart" data-product-number="4">
+            Add to cart
+          </button>
         </div>
         <div class="product-item">
-          <img src="assets/rose.jpg" alt="Product 1" />
+          <img src="assets/rose.jpg" alt="Product 5" />
           <h2><%= n_name5 %></h2>
           <p><%= n_desc5 %></p>
           <p class="price">$<%= n_price5 %></p>
-          <button class="add-to-cart" data-product-id="1">Add to cart</button>
+          <button class="add-to-cart" data-product-number="5">
+            Add to cart
+          </button>
         </div>
         <div class="product-item">
-          <img src="assets/eucalyptus.jpg" alt="Product 1" />
+          <img src="assets/eucalyptus.jpg" alt="Product 6" />
           <h2><%= n_name6 %></h2>
           <p><%= n_desc6 %></p>
           <p class="price">$<%= n_price6 %></p>
-          <button class="add-to-cart" data-product-id="1">Add to cart</button>
+          <button class="add-to-cart" data-product-number="6">
+            Add to cart
+          </button>
         </div>
 
         <!-- Repeat the above code for each product -->
