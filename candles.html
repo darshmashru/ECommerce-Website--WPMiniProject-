@@ -21,7 +21,6 @@
         addToCartButtons.forEach((button) => {
           button.addEventListener("click", function () {
             const productNumber = button.getAttribute("data-product-number");
-            console.log(productNumber);
             const numericProductNumber = Number(productNumber);
             const objectID = productDataMap[productNumber];
             addToCart(objectID);

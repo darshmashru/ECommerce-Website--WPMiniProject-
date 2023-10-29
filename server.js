@@ -2,6 +2,7 @@ import express from 'express';
 import ejs from 'ejs';
 import fs from 'fs/promises';
 import { MongoClient } from 'mongodb';
+import { ObjectId } from 'mongodb';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import dotenv from 'dotenv';
@@ -216,7 +217,6 @@ app.get('/rings.html', async (req, res) => {
   }
 });
 
-// Add a new route to handle the "/add-to-cart" request
 app.post('/update-cart', async (req, res) => {
   try {
     // Assuming that the request body contains the product details to add to the cart
@@ -232,11 +232,7 @@ app.post('/update-cart', async (req, res) => {
     } catch (err) {
       // Handle file read errors, e.g., if the file doesn't exist
     }
-
-    // Add the new product data to the cart
     cartData.push(productData);
-
-    // Save the updated cart data to the JSON file
     await fs.writeFile('cart.json', JSON.stringify(cartData, null, 2), 'utf8');
 
     res.json({ success: true, message: 'Product added to cart successfully' });
@@ -259,7 +255,34 @@ app.post('/save-details', (req, res) => {
         res.status(200).send('Form data submitted successfully!');
     }
     client.close();
+    });
   });
+
+app.post('/cart-data', async (req, res) => {
+  try {
+    const requestData = req.body;
+    const results = [];
+    for (const item of requestData) {
+      const { DB, ID } = item;
+
+      // Define the collection name based on the 'DB' parameter
+      const collectionName = DB;
+      const db = client.db("Merkaba");
+
+      // Use the MongoDB driver to access the specified collection and query by ObjectID
+      const collection = db.collection(collectionName);
+      const data = await collection.findOne({ _id: new ObjectId(ID) });
+      if (data) {
+        results.push(data);
+      } else {
+        results.push({ message: `Data not found for DB: ${DB} and ID: ${ID}` });
+      }
+    }
+
+    res.json(results);
+  } catch (error) {
+    res.status(500).json({ message: 'Error retrieving data from the database' });
+  }
 });
 
 
