@@ -633,7 +633,7 @@
                             </td>
                             <td>
                                 <div class="table-p__del-wrap">
-                                    <a class="far fa-trash-alt table-p__delete-link" href="#"></a>
+                                    <a class="far fa-trash-alt table-p__delete-link" id="${item._id}"></a>
                                 </div>
                             </td>
                         </tr>
@@ -651,6 +651,7 @@
                     } else {
                         console.error('Element with ID "cart-container" not found');
                     }
+                    document.dispatchEvent(new Event('maincartloaded'));
                 })
                 .catch(error => {
                     console.error('Error fetching cart data:', error);
@@ -710,7 +711,7 @@
                                     <span class="mini-product__price">${item.price || 'N/A'}</span>
                                 </div>
                             </div>
-                            <a class="mini-product__delete-link far fa-trash-alt"></a>
+                            <a class="mini-product__delete-link far fa-trash-alt" id="${item._id}"></a>
                         </div>
                     `;
                     miniCartContainer.innerHTML += miniCartItemHtml;
@@ -732,10 +733,12 @@
             } else {
                 console.error('Element with class "mini-product-container" not found');
             }
+            document.dispatchEvent(new Event('minicartloaded'));
         })
         .catch(error => {
             console.error('Error fetching cart data:', error);
         });
+        
 });
 
 

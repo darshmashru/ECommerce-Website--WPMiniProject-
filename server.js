@@ -1,6 +1,7 @@
 import express from 'express';
 import ejs from 'ejs';
 import fs from 'fs/promises';
+import deletefs from 'fs';
 import { MongoClient } from 'mongodb';
 import { ObjectId } from 'mongodb';
 import { fileURLToPath } from 'url';
@@ -240,6 +241,37 @@ app.post('/update-cart', async (req, res) => {
     console.error('Error occurred while adding to cart:', err);
     res.status(500).send('Internal server error. Please try again later.');
   }
+});
+
+app.post('/remove-item', (req, res) => {
+  const { objectID } = req.body;
+  console.log(req.body)
+  deletefs.readFile('cart.json', 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading the cart.json file:', err);
+      return res.status(500).json({ error: 'Error reading cart.json' });
+    }
+    try {
+      const cartData = JSON.parse(data);
+      const indexToDelete = cartData.findIndex(entry => entry.ID === objectID);
+
+      if (indexToDelete === -1) {
+        return res.status(404).json({ error: 'Entry not found' });
+      }
+      cartData.splice(indexToDelete, 1);
+
+      deletefs.writeFile('cart.json', JSON.stringify(cartData, null, 2), 'utf8', err => {
+        if (err) {
+          console.error('Error writing to cart.json:', err);
+          return res.status(500).json({ error: 'Error writing to cart.json' });
+        } else {
+          console.log('Entry deleted successfully.');
+        }
+      });
+    }catch (jsonParseError) {
+    console.error('Error parsing cart.json:', jsonParseError);
+  }
+});
 });
 
 app.get('/api/:db/:id', async (req, res) => {
