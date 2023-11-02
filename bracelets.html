@@ -1884,6 +1884,90 @@
 
     <!--====== Google Analytics: change UA-XXXXX-Y to be your site's ID ======-->
     
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/cart.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error fetching cart data: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(cartData => {
+                    return fetch('/cart-data', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(cartData),
+                    });
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error fetching item details: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const miniCartContainer = document.querySelector('.mini-product-container');
+                    const itemCountElement = document.querySelectorAll('.total-item-round');
+                    let totalItems = 0;
+                    let subtotal = 0;
+        
+                    if (miniCartContainer) {
+                        miniCartContainer.innerHTML = '';  // Clear the existing mini-cart items
+        
+                        data.forEach(item => {
+                            const miniCartItemHtml = `
+                                <div class="card-mini-product">
+                                    <div class="mini-product">
+                                        <div class="mini-product__image-wrapper">
+                                            <a class="mini-product__link" href="product-detail.html">
+                                                <img class="u-img-fluid" src="${item.image || 'images/product/placeholder.jpg'}" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="mini-product__info-wrapper">
+                                            <span class="mini-product__category">
+                                                <a href="shop-side-version-2.html">${item.category || 'N/A'}</a>
+                                            </span>
+                                            <span class="mini-product__name">
+                                                <a href="product-detail.html">${item.name || 'N/A'}</a>
+                                            </span>
+                                            <span class="mini-product__quantity">${item.quantity || 1} x</span>
+                                            <span class="mini-product__price">${item.price || 'N/A'}</span>
+                                        </div>
+                                    </div>
+                                    <a class="mini-product__delete-link far fa-trash-alt"></a>
+                                </div>
+                            `;
+                            miniCartContainer.innerHTML += miniCartItemHtml;
+        
+                            totalItems += item.quantity || 1;
+                            subtotal += (item.price || 0) * (item.quantity || 1);
+                        });
+        
+                        // Update the subtotal in the mini-cart
+                        const subtotalElement = document.querySelector('.subtotal-value');
+                        if (subtotalElement) {
+                            subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+                        }
+        
+                        // Update the item count indicator
+                        if (itemCountElement) {
+                            itemCountElement.forEach(element => {
+                                element.textContent = totalItems;
+                            });
+                        }
+                    } else {
+                        console.error('Element with class "mini-product-container" not found');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching cart data:', error);
+                });
+        });
+        </script>
+
     <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
     <!--====== Vendor Js ======-->
