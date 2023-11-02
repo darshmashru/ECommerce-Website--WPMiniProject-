@@ -932,6 +932,186 @@ function updateMiniCart(data) {
     });
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+        fetch('/cart.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Error fetching cart data: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(cartData => {
+                return fetch('/cart-data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(cartData),
+                });
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Error fetching item details: ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const cartContainer = document.getElementById('cart-container');
+                let total = 0;
+                if (cartContainer) {
+                    cartContainer.innerHTML = '';  // Clear the existing cart items
+                    data.forEach((item, index) => {
+                        const price = parseFloat(item.price) || 0;  // Ensure price is a number
+                        total += price;  // Update the total
+                        const itemHtml = `
+                            <tr data-index="${index}">
+                                <td>
+                                    <div class="table-p__box">
+                                        <div class="table-p__img-wrap">
+                                            <img class="u-img-fluid" src="${item.image || 'images/product/placeholder.jpg'}" alt="">
+                                        </div>
+                                        <div class="table-p__info">
+                                            <span class="table-p__name">
+                                                <a href="product-detail.html">${item.name || 'N/A'}</a>
+                                            </span>
+                                            <span class="table-p__category">
+                                                <a href="shop-side-version-2.html">${item.category || 'N/A'}</a>
+                                            </span>
+                                            <ul class="table-p__variant-list">
+                                                <li>
+                                                    <span>Size: ${item.size || 'N/A'}</span>
+                                                </li>
+                                                <li>
+                                                    <span>Color: ${item.color || 'N/A'}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="table-p__price">${item.price || 'N/A'}</span>
+                                </td>
+                                <td>
+                                    <div class="table-p__input-counter-wrap">
+                                        <div class="input-counter">
+                                            <span class="input-counter__minus fas fa-minus"></span>
+                                            <input class="input-counter__text input-counter--text-primary-style" type="text" value="${item.quantity || 1}" data-min="1" data-max="1000">
+                                            <span class="input-counter__plus fas fa-plus"></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="table-p__del-wrap">
+                                        <a class="far fa-trash-alt table-p__delete-link" href="#" data-index="${index}"></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        `;
+                        cartContainer.innerHTML += itemHtml;
+                    });
+
+                    // Update the HTML with the total price
+                    const subtotalElement = document.querySelector('.f-cart__table tbody tr:nth-child(3) td:nth-child(2)');
+                    const grandTotalElement = document.querySelector('.f-cart__table tbody tr:nth-child(4) td:nth-child(2)');
+                    if (subtotalElement && grandTotalElement) {
+                        subtotalElement.textContent = `$${total.toFixed(2)}`;
+                        grandTotalElement.textContent = `$${total.toFixed(2)}`;
+                    }
+
+                    // Add event listener for delete buttons
+                    const deleteButtons = document.querySelectorAll('.table-p__delete-link');
+                    deleteButtons.forEach(button => {
+                        button.addEventListener('click', function (event) {
+                            event.preventDefault();
+                            const index = button.dataset.index;
+                            data.splice(index, 1);  // Remove the item from data array
+                            updateCart(data);  // Update the cart
+                        });
+                    });
+                } else {
+                    console.error('Element with ID "cart-container" not found');
+                }
+                document.dispatchEvent(new Event('maincartloaded'));
+            })
+            .catch(error => {
+                console.error('Error fetching cart data:', error);
+            });
+    });
+
+    function updateCart(data) {
+        const cartContainer = document.getElementById('cart-container');
+        let total = 0;
+        cartContainer.innerHTML = '';  // Clear the existing cart items
+        data.forEach((item, index) => {
+            const price = parseFloat(item.price) || 0;  // Ensure price is a number
+            total += price;  // Update the total
+            const itemHtml = `
+                <tr data-index="${index}">
+                    <td>
+                        <div class="table-p__box">
+                            <div class="table-p__img-wrap">
+                                <img class="u-img-fluid" src="${item.image || 'images/product/placeholder.jpg'}" alt="">
+                            </div>
+                            <div class="table-p__info">
+                                <span class="table-p__name">
+                                    <a href="product-detail.html">${item.name || 'N/A'}</a>
+                                </span>
+                                <span class="table-p__category">
+                                    <a href="shop-side-version-2.html">${item.category || 'N/A'}</a>
+                                </span>
+                                <ul class="table-p__variant-list">
+                                    <li>
+                                        <span>Size: ${item.size || 'N/A'}</span>
+                                    </li>
+                                    <li>
+                                        <span>Color: ${item.color || 'N/A'}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="table-p__price">${item.price || 'N/A'}</span>
+                    </td>
+                    <td>
+                        <div class="table-p__input-counter-wrap">
+                            <div class="input-counter">
+                                <span class="input-counter__minus fas fa-minus"></span>
+                                <input class="input-counter__text input-counter--text-primary-style" type="text" value="${item.quantity || 1}" data-min="1" data-max="1000">
+                                <span class="input-counter__plus fas fa-plus"></span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="table-p__del-wrap">
+                            <a class="far fa-trash-alt table-p__delete-link" href="#" data-index="${index}"></a>
+                        </div>
+                    </td>
+                </tr>
+            `;
+            cartContainer.innerHTML += itemHtml;
+        });
+
+        // Update the HTML with the total price
+        const subtotalElement = document.querySelector('.f-cart__table tbody tr:nth-child(3) td:nth-child(2)');
+        const grandTotalElement = document.querySelector('.f-cart__table tbody tr:nth-child(4) td:nth-child(2)');
+        if (subtotalElement && grandTotalElement) {
+            subtotalElement.textContent = `$${total.toFixed(2)}`;
+            grandTotalElement.textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Add event listener for delete buttons
+        const deleteButtons = document.querySelectorAll('.table-p__delete-link');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                const index = button.dataset.index;
+                data.splice(index, 1);  // Remove the item from data array
+                updateCart(data);  // Update the cart
+            });
+        });
+    }
+
 });
 
 
