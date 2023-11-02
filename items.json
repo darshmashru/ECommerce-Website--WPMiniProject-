@@ -1,0 +1,14 @@
+[
+    {
+      "DB": "bracelets",
+      "ID": "653930deca7dae392086315c",
+      "name": "Bracelet",
+      "category": "Accessories",
+      "image": "images/product/accessories/bracelet.jpg",
+      "price": "$50.00",
+      "size": "Medium",
+      "color": "Silver",
+      "quantity": "2"
+    }
+  ]
+  

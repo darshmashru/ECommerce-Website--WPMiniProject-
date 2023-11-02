@@ -242,6 +242,26 @@ app.post('/update-cart', async (req, res) => {
   }
 });
 
+app.get('/api/:db/:id', async (req, res) => {
+  try {
+    const dbName = req.params.db;
+    const itemId = req.params.id;
+
+    const db = client.db("Merkaba");
+    const collection = db.collection(dbName);
+    const item = await collection.findOne({ _id: new ObjectId(itemId) });
+
+    if (!item) {
+      res.status(404).send('Item not found');
+    } else {
+      res.json(item);
+    }
+  } catch (err) {
+    console.error('Error querying MongoDB:', err);
+    res.status(500).send('Internal server error');
+  }
+});
+
 app.post('/save-details', (req, res) => {
   const formData = req.body;
   const db = client.db('Merkaba');
