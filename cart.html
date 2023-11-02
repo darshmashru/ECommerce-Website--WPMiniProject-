@@ -60,8 +60,6 @@
                         <button class="btn btn--icon toggle-button fas fa-shopping-bag toggle-button-shop"
                             type="button"></button>
 
-                        <span class="total-item-round">2</span>
-
                         <!--====== Menu ======-->
                         <div class="ah-lg-mode">
 
@@ -81,7 +79,7 @@
 
                                     <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i>
 
-                                        <span class="total-item-round">2</span></a>
+                                        <span class="total-item-round">0</span></a>
 
                                     <!--====== Dropdown ======-->
 
@@ -566,37 +564,37 @@
 
     <script>
 
-document.addEventListener('DOMContentLoaded', function () {
-    fetch('/cart.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Error fetching cart data: ${response.statusText}`);
-            }
-            return response.json();
-        })
-        .then(cartData => {
-            return fetch('/cart-data', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(cartData),
-            });
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Error fetching item details: ${response.statusText}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            const cartContainer = document.getElementById('cart-container');
-            let total = 0;
-            if (cartContainer) {
-                data.forEach(item => {
-                    const price = parseFloat(item.price) || 0;  // Ensure price is a number
-                    total += price;  // Update the total
-                    const itemHtml = `
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/cart.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error fetching cart data: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(cartData => {
+                    return fetch('/cart-data', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(cartData),
+                    });
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error fetching item details: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const cartContainer = document.getElementById('cart-container');
+                    let total = 0;
+                    if (cartContainer) {
+                        data.forEach(item => {
+                            const price = parseFloat(item.price) || 0;  // Ensure price is a number
+                            total += price;  // Update the total
+                            const itemHtml = `
                         <tr>
                             <td>
                                 <div class="table-p__box">
@@ -640,18 +638,99 @@ document.addEventListener('DOMContentLoaded', function () {
                             </td>
                         </tr>
                     `;
-                    cartContainer.innerHTML += itemHtml;
+                            cartContainer.innerHTML += itemHtml;
+                        });
+
+                        // Update the HTML with the total price
+                        const subtotalElement = document.querySelector('.f-cart__table tbody tr:nth-child(3) td:nth-child(2)');
+                        const grandTotalElement = document.querySelector('.f-cart__table tbody tr:nth-child(4) td:nth-child(2)');
+                        if (subtotalElement && grandTotalElement) {
+                            subtotalElement.textContent = `$${total.toFixed(2)}`;
+                            grandTotalElement.textContent = `$${total.toFixed(2)}`;
+                        }
+                    } else {
+                        console.error('Element with ID "cart-container" not found');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching cart data:', error);
+                });
+        });
+
+    
+        document.addEventListener('DOMContentLoaded', function () {
+    fetch('/cart.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error fetching cart data: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(cartData => {
+            return fetch('/cart-data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(cartData),
+            });
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error fetching item details: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const miniCartContainer = document.querySelector('.mini-product-container');
+            const itemCountElement = document.querySelector('.total-item-round');
+            let totalItems = 0;
+            let subtotal = 0;
+
+            if (miniCartContainer) {
+                miniCartContainer.innerHTML = '';  // Clear the existing mini-cart items
+
+                data.forEach(item => {
+                    const miniCartItemHtml = `
+                        <div class="card-mini-product">
+                            <div class="mini-product">
+                                <div class="mini-product__image-wrapper">
+                                    <a class="mini-product__link" href="product-detail.html">
+                                        <img class="u-img-fluid" src="${item.image || 'images/product/placeholder.jpg'}" alt="">
+                                    </a>
+                                </div>
+                                <div class="mini-product__info-wrapper">
+                                    <span class="mini-product__category">
+                                        <a href="shop-side-version-2.html">${item.category || 'N/A'}</a>
+                                    </span>
+                                    <span class="mini-product__name">
+                                        <a href="product-detail.html">${item.name || 'N/A'}</a>
+                                    </span>
+                                    <span class="mini-product__quantity">${item.quantity || 1} x</span>
+                                    <span class="mini-product__price">${item.price || 'N/A'}</span>
+                                </div>
+                            </div>
+                            <a class="mini-product__delete-link far fa-trash-alt"></a>
+                        </div>
+                    `;
+                    miniCartContainer.innerHTML += miniCartItemHtml;
+
+                    totalItems += item.quantity || 1;
+                    subtotal += (item.price || 0) * (item.quantity || 1);
                 });
 
-                // Update the HTML with the total price
-                const subtotalElement = document.querySelector('.f-cart__table tbody tr:nth-child(3) td:nth-child(2)');
-                const grandTotalElement = document.querySelector('.f-cart__table tbody tr:nth-child(4) td:nth-child(2)');
-                if (subtotalElement && grandTotalElement) {
-                    subtotalElement.textContent = `$${total.toFixed(2)}`;
-                    grandTotalElement.textContent = `$${total.toFixed(2)}`;
+                // Update the subtotal in the mini-cart
+                const subtotalElement = document.querySelector('.subtotal-value');
+                if (subtotalElement) {
+                    subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+                }
+
+                // Update the item count indicator
+                if (itemCountElement) {
+                    itemCountElement.textContent = totalItems;
                 }
             } else {
-                console.error('Element with ID "cart-container" not found');
+                console.error('Element with class "mini-product-container" not found');
             }
         })
         .catch(error => {
@@ -660,6 +739,41 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('/cart.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error fetching cart data: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(cartData => {
+            return fetch('/cart-data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(cartData),
+            });
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error fetching item details: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            const itemCountElement = document.querySelector('.total-item-round');
+            if (itemCountElement) {
+                itemCountElement.textContent = data.length;
+            } else {
+                console.error('Element with class "total-item-round" not found');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching cart data:', error);
+        });
+});
 
 
 
