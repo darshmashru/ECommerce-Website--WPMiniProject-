@@ -567,7 +567,6 @@
     <script>
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Fetch cart data from JSON file
     fetch('/cart.json')
         .then(response => {
             if (!response.ok) {
@@ -576,7 +575,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return response.json();
         })
         .then(cartData => {
-            // Send cart data to server to get item details
             return fetch('/cart-data', {
                 method: 'POST',
                 headers: {
@@ -592,10 +590,12 @@ document.addEventListener('DOMContentLoaded', function () {
             return response.json();
         })
         .then(data => {
-            // Generate the HTML for each item and append it to the cart page
             const cartContainer = document.getElementById('cart-container');
+            let total = 0;
             if (cartContainer) {
                 data.forEach(item => {
+                    const price = parseFloat(item.price) || 0;  // Ensure price is a number
+                    total += price;  // Update the total
                     const itemHtml = `
                         <tr>
                             <td>
@@ -642,6 +642,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     `;
                     cartContainer.innerHTML += itemHtml;
                 });
+
+                // Update the HTML with the total price
+                const subtotalElement = document.querySelector('.f-cart__table tbody tr:nth-child(3) td:nth-child(2)');
+                const grandTotalElement = document.querySelector('.f-cart__table tbody tr:nth-child(4) td:nth-child(2)');
+                if (subtotalElement && grandTotalElement) {
+                    subtotalElement.textContent = `$${total.toFixed(2)}`;
+                    grandTotalElement.textContent = `$${total.toFixed(2)}`;
+                }
             } else {
                 console.error('Element with ID "cart-container" not found');
             }
@@ -650,6 +658,8 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error fetching cart data:', error);
         });
 });
+
+
 
 
 
